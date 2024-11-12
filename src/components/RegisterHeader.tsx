@@ -12,6 +12,8 @@ const RegisterHeader = () => {
                     <div className="ml-5 text-xl lg:text-2xl">Đăng Ký</div>
                 </nav>
             </div>
+            <div className="grid grid-rows-4 grid-flow-col gap-4">
+</div>
         </header>
       </>
     );
