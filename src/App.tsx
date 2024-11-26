@@ -2,6 +2,7 @@ import { useRoutes } from "react-router-dom";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ProductList from "./pages/ProductList";
+import RegisterLayout from "./layouts/RegisterLayout";
 function App() {
   const routeElements = useRoutes([
     {
@@ -10,11 +11,11 @@ function App() {
     },
     {
       path: '/register',
-      element: <Register />
+      element: <RegisterLayout> <Register /> </RegisterLayout>
     },
     {
       path: '/login',
-      element: <Login />
+      element: <RegisterLayout> <Login /> </RegisterLayout>
     }
   ])
   return routeElements

@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const ProductList = () => {
+    useEffect(() => {
+        console.log("ahihi")
+    })
     return (
         <div>
-            <>ProductList</>
+            Product List
         </div>
     );
 };
