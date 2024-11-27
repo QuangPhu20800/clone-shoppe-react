@@ -1,16 +1,17 @@
 import { useForm } from "react-hook-form"
 import { Link } from "react-router-dom"
-import { rules } from "../../src/utils/rule"
+import { getRules } from "../../src/utils/rule"
 type Inputs = {
     email: string,
     password: string,
     confirm_password: string
 }
 function Register() {
-    const {register, handleSubmit, getValues, formState: {errors}} = useForm<Inputs>()
-    const onSubmit = handleSubmit((data) => {
-      console.log(data)
-    })
+  const {register, handleSubmit, getValues, formState: {errors}} = useForm<Inputs>()
+  const onSubmit = handleSubmit((data) => {
+    console.log(data)
+  })
+  const rules = getRules(getValues)
   return (
     <div className='bg-orange'>
       <div className='max-w-7xl mx-auto px-4'>
@@ -38,7 +39,7 @@ function Register() {
               </div>
               <div className='mt-2'>
                 <input
-                 {...register("confirm_password", {...rules.confirm_password, validate: (value) => value === getValues('password') || 'Password không khớp'})}
+                 {...register("confirm_password", rules.confirm_password)}
                   type='password'
                   className='p-3 w-full outline-none border border-gray-300 focus:border-gray-500 rounded-sm focus:shadow-sm'
                   placeholder='Confirm Password'
